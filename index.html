@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBudget AI — The Student Budget Guardian Agent</title>
+  <meta name="description" content="SmartBudget AI makes student budgeting agentic: it predicts overspending before it happens and explains every recommendation. Built on Base44 with RealRelay agentic AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#hero" class="logo"><span class="logo-mark">◈</span> SmartBudget <em>AI</em></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#problem">Problem</a>
+    <a href="#solution">Solution</a>
+    <a href="#agent-flow">Agent Flow</a>
+    <a href="#demo">Demo</a>
+    <a href="#banks">For banks</a>
+    <a href="#business">Business</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">Base44 × RealRelay agentic AI · Launching in Singapore 🇸🇬</span>
+    <h1>The budget that<br><span class="grad">watches out for you.</span></h1>
+    <p class="hero-sub">SmartBudget AI doesn't wait for students to ask. Its <strong>Student Budget Guardian Agent</strong> predicts overspending before the month ends, explains why, and nudges savings goals — always with consent, never with judgment.</p>
+    <div class="hero-ctas">
+      <a href="#demo" class="btn btn-primary">▶ Watch the live demo</a>
+      <a href="#agent-flow" class="btn btn-ghost">How the agent works</a>
+      <!-- Uncomment and set href once the app is published:
+      <a href="PUBLISHED_APP_URL" class="btn btn-ghost">Open the live app ↗</a>
+      -->
+    </div>
+    <div class="hero-chips">
+      <span class="chip">⚡ Predicts overspend before it happens</span>
+      <span class="chip">🔍 Every alert is explainable</span>
+      <span class="chip">🔒 Consent-first, no auto-transfers</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ PROBLEM ============ -->
+<section id="problem" class="section reveal">
+  <div class="wrap">
+    <p class="kicker">The problem</p>
+    <h2>Budgeting apps react. By then, it's too late.</h2>
+    <p class="section-sub">Students only find out they overspent <em>after</em> the month is over. Insights require asking. Budgets require manual fixing. Goals quietly die.</p>
+    <div class="card-grid three">
+      <div class="card">
+        <div class="card-icon">📉</div>
+        <h3>Reactive by design</h3>
+        <p>Traditional apps show you what already happened. Nobody warns you on day 18 that you're on track to blow the budget by day 30.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🫥</div>
+        <h3>Overspending surprises</h3>
+        <p>One extra food-delivery order a week is invisible — until it's the reason a student can't make rent or reach their savings goal.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Goals without a guardian</h3>
+        <p>Students set goals, then life happens. Nothing adapts the plan, suggests a realistic adjustment, or protects the pace toward the goal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION ============ -->
+<section id="solution" class="section alt reveal">
+  <div class="wrap">
+    <p class="kicker">The solution</p>
+    <h2>One agent. One job.<br>Keep students within budget while helping them save.</h2>
+    <p class="section-sub">SmartBudget AI is already a full student budgeting app on Base44. Integrating RealRelay's agentic AI turns it from a ledger into a guardian.</p>
+    <div class="card-grid three">
+      <div class="card">
+        <div class="card-icon">👁️</div>
+        <h3>Monitors in real time</h3>
+        <p>Every transaction triggers an instant evaluation of the student's budget, spending velocity, and savings outlook.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔮</div>
+        <h3>Predicts, doesn't report</h3>
+        <p>A deterministic engine forecasts month-end spend and overspend risk — before the budget is exceeded, not after.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧭</div>
+        <h3>Recommends &amp; explains</h3>
+        <p>One clear, specific intervention per event — with the reason in plain language. "Limit food delivery to S$30 for 12 days."</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Nudges goals</h3>
+        <p>Reminders and gamified encouragement keep the pace toward each savings goal — without reducing planned savings.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Personal monthly insights</h3>
+        <p>"You saved 12% more than last month" — comparisons against the student's own history, not generic advice.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Bounded &amp; safe</h3>
+        <p>No money ever moves without explicit approval. Deterministic guardrails wrap every AI-generated recommendation.</p>
+      </div>
+    </div>
+    <div class="loop-strip">
+      <span class="loop-title">The agent's reasoning loop</span>
+      <span class="loop-step">Observe</span><span class="loop-arrow">→</span>
+      <span class="loop-step">Reason</span><span class="loop-arrow">→</span>
+      <span class="loop-step">Act</span><span class="loop-arrow">→</span>
+      <span class="loop-step">Observe result</span><span class="loop-arrow">→</span>
+      <span class="loop-step">Repeat</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGENT FLOW ============ -->
+<section id="agent-flow" class="section reveal">
+  <div class="wrap">
+    <p class="kicker">Agent flow</p>
+    <h2>From one transaction to one explainable decision</h2>
+    <p class="section-sub">Every evaluation is bounded, auditable, and traceable end-to-end with a single request ID.</p>
+    <div class="flow-legend">
+      <span><i class="dot dot-student"></i>Student</span>
+      <span><i class="dot dot-base44"></i>Base44 app</span>
+      <span><i class="dot dot-realrelay"></i>RealRelay agent</span>
+      <span><i class="dot dot-data"></i>Data store</span>
+    </div>
+    <ol class="flow-timeline">
+      <li data-actor="student">Student adds a transaction in SmartBudget AI</li>
+      <li data-actor="base44">Base44 saves the transaction and emits <code>transaction.created</code></li>
+      <li data-actor="base44">Base44 calls <code>POST /agent/evaluate</code> with the full financial context</li>
+      <li data-actor="realrelay">Deterministic engine computes spend, velocity, projection &amp; risk score</li>
+      <li data-actor="realrelay">Reasoning layer selects <strong>one</strong> intervention and explains it</li>
+      <li data-actor="realrelay">Agent returns a structured, schema-validated JSON decision</li>
+      <li data-actor="base44">Base44 stores the decision and the audit record</li>
+      <li data-actor="student">Student sees the proactive alert in-app — accept, dismiss, or ask "why?"</li>
+      <li data-actor="base44">Student's response flows back to <code>/agent/feedback</code></li>
+      <li data-actor="realrelay">Agent adapts tone, timing &amp; amounts — never permissions</li>
+    </ol>
+    <div class="guardrails">
+      <p class="guardrails-title">Deterministic guardrails around every AI recommendation</p>
+      <div class="chip-row">
+        <span class="chip">✅ All money math computed by code, never the LLM</span>
+        <span class="chip">✅ Duplicate alerts suppressed by cooldown + dedup key</span>
+        <span class="chip">✅ No transfers without explicit approval</span>
+        <span class="chip">✅ Consent changes apply instantly</span>
+        <span class="chip">✅ Full audit trail per evaluation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section id="demo" class="section alt reveal">
+  <div class="wrap">
+    <p class="kicker">Live demo scenario</p>
+    <h2>A S$35 food-delivery order, caught in 6 steps</h2>
+    <p class="section-sub">Synthetic student: S$600 monthly budget · S$445 already spent · 12 days left · food 25% above usual · savings goal S$720 of S$1,000 · low-frequency alerts · no automatic transfers.</p>
+
+    <div class="demo-layout">
+      <!-- left: step driver -->
+      <div class="demo-driver">
+        <div class="demo-controls">
+          <button id="demoPlay" class="btn btn-primary">▶ Play</button>
+          <button id="demoNext" class="btn btn-ghost">Next step ›</button>
+          <button id="demoReset" class="btn btn-ghost">↺ Reset</button>
+        </div>
+        <ol class="demo-steps" id="demoSteps"></ol>
+        <div class="demo-note" id="demoNote"></div>
+      </div>
+
+      <!-- center: phone -->
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <span class="app-title">◈ SmartBudget AI</span>
+              <span class="app-bell" id="appBell">🔔</span>
+            </div>
+
+            <div class="app-card">
+              <div class="app-card-label">September budget</div>
+              <div class="app-big"><span id="spentValue">S$445</span> <span class="app-muted">of S$600</span></div>
+              <div class="bar">
+                <div class="bar-fill" id="barSpent" style="width:74%"></div>
+                <div class="bar-marker" id="barProjection" title="Projected month-end: S$665"></div>
+              </div>
+              <div class="app-row app-muted"><span id="projectionLabel">18 days in · 12 to go</span></div>
+            </div>
+
+            <div class="app-card">
+              <div class="app-card-label">🎯 Laptop fund</div>
+              <div class="app-row"><strong>S$720</strong> <span class="app-muted">of S$1,000 · 72%</span></div>
+              <div class="bar slim"><div class="bar-fill goal" style="width:72%"></div></div>
+            </div>
+
+            <div class="app-txn" id="txnRow" hidden>
+              <span class="txn-icon">🍔</span>
+              <span class="txn-name">Food delivery<small>Just now</small></span>
+              <span class="txn-amt">−S$35</span>
+            </div>
+
+            <div class="app-eval" id="evalBadge" hidden>
+              <span class="spinner"></span> Guardian agent evaluating…
+            </div>
+
+            <div class="app-alert" id="alertCard" hidden>
+              <div class="alert-head"><span class="risk-pill">High risk</span><span class="app-muted">now</span></div>
+              <p class="alert-msg" id="alertMsg"></p>
+              <div class="alert-actions">
+                <button class="btn-mini" id="acceptBtn">Accept</button>
+                <button class="btn-mini ghost">Dismiss</button>
+              </div>
+              <a class="why-link" id="whyLink">Why am I seeing this?</a>
+              <p class="why-text" id="whyText" hidden></p>
+            </div>
+
+            <div class="app-accepted" id="acceptedCard" hidden>✅ Recommendation accepted — feedback sent to your agent</div>
+
+            <div class="ask-box">💬 Ask SmartBudget AI…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right: JSON -->
+      <div class="json-panel">
+        <div class="json-tab">
+          <span class="json-dir" id="jsonDir">Base44 → RealRelay</span>
+          <span class="json-eta" id="jsonEta">POST /agent/evaluate</span>
+        </div>
+        <pre class="json-view" id="jsonView"></pre>
+        <p class="json-caption">Schema-validated, idempotent, traceable by <code>requestId</code>. Numbers come from the deterministic engine — the AI layer only selects, explains, and personalizes.</p>
+      </div>
+    </div>
+
+    <div class="demo-badges">
+      <span class="chip">⏱️ Alert in under 2 seconds</span>
+      <span class="chip">🚫 No transfer executed — consent respected</span>
+      <span class="chip">🔁 Duplicate alerts suppressed for 72h</span>
+      <span class="chip">🧾 Audit record stored in Base44</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR BANKS ============ -->
+<section id="banks" class="section alt reveal">
+  <div class="wrap">
+    <p class="kicker">For banks</p>
+    <h2>The first bank in a student's financial life.</h2>
+    <p class="section-sub">Youth accounts open at 16 — then go dormant, because nothing keeps the relationship alive. SmartBudget AI is the engagement layer that keeps your brand present in a student's daily financial life, years before any competitor's marketing can reach them.</p>
+    <div class="card-grid three">
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>A category no one owns yet</h3>
+        <p>There is no agentic AI budgeting app built for students. Seedly is adult-focused and reactive, YNAB isn't localized, and bank apps only see their own customers. The bank that partners first owns the introduction.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>A partner built to be brandable</h3>
+        <p>We're student-first, not monetization-first — we never squeeze the students we serve and never sell their data. The agent is recommendation-only with a full audit trail. You buy access to a generation, not app revenue.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <h3>Paid from budgets you already spend</h3>
+        <p>APAC digital banks pay US$65–90 to acquire a single retail customer (Quinlan &amp; Associates, APAC Digital Bank Landscape). A per-activated-student referral fee is a fraction of that — with better targeting, at the moment financial habits form.</p>
+      </div>
+    </div>
+    <div class="guardrails">
+      <p class="guardrails-title">Compliance-ready by design</p>
+      <div class="chip-row">
+        <span class="chip">✅ Recommendation-only: no transfers without explicit approval — enforced in code</span>
+        <span class="chip">✅ Every evaluation logged with reason codes, visible to the user</span>
+        <span class="chip">✅ PDPA-first: bank connection only via regulated channels (SG FinDex / licensed aggregators), fresh consent required</span>
+        <span class="chip">✅ Aligned with MAS FEAT Principles &amp; MAS Safeguards for Agentic Finance at Runtime (SAFR, 2026)</span>
+      </div>
+    </div>
+    <p class="section-sub" style="margin-top:1.5rem">Banks already know they need this: Mox Bank built its own in-app budgeting layer — but it only works for Mox customers. We're the bank-agnostic version that reaches students on <em>every</em> bank. Partnership ecosystems and referral agreements are already a standard digital-bank acquisition strategy across APAC.</p>
+    <div class="hero-ctas" style="justify-content:center">
+      <a href="#contact" class="btn btn-primary">Propose a pilot</a>
+      <a href="#demo" class="btn btn-ghost">See the Guardian in action</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS ============ -->
+<section id="business" class="section reveal">
+  <div class="wrap">
+    <p class="kicker">Business model</p>
+    <h2>Free to budget. Premium to be protected.</h2>
+    <div class="card-grid two">
+      <div class="card tier">
+        <h3>Students · Free</h3>
+        <p class="price">S$0</p>
+        <ul>
+          <li>✓ Manual transaction tracking</li>
+          <li>✓ Savings goals</li>
+          <li>✓ Standard monthly summary</li>
+          <li>✓ 3 smart queries / month</li>
+        </ul>
+      </div>
+      <div class="card tier featured">
+        <span class="tier-flag">Agentic features</span>
+        <h3>Students · Premium</h3>
+        <p class="price">S$3–5<span class="per">/month</span></p>
+        <ul>
+          <li>⚡ Real-time overspend prediction</li>
+          <li>⚡ Proactive alerts &amp; recommendations</li>
+          <li>⚡ Unlimited smart queries</li>
+          <li>⚡ Personalized monthly coaching report</li>
+          <li>⚡ Goal gamification streaks</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-grid three">
+      <div class="card">
+        <div class="card-icon">🏦</div>
+        <h3>Banks</h3>
+        <p>The core channel: per-activated-student referral fees from existing acquisition budgets, co-branded student programs, and — in a later phase — consented account-feed integration via SG FinDex. Aggregated, anonymized engagement analytics only, never individual student data.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>Universities</h3>
+        <p>Opt-in anonymized cohort dashboards for financial-literacy programs, workshop content, and adoption reporting.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌏</div>
+        <h3>Expansion path</h3>
+        <p>Launching with Singapore campuses (NUS, NTU, SMU, SIT, SUSS, polys) → Malaysia → Indonesia, Thailand &amp; the Philippines. Market-agnostic by design.</p>
+      </div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><strong>≥5%</strong><span>free→premium conversion</span></div>
+      <div class="kpi"><strong>≥40%</strong><span>D30 retention</span></div>
+      <div class="kpi"><strong>≥25%</strong><span>alert acceptance</span></div>
+      <div class="kpi"><strong>≥10%</strong><span>overspend reduction</span></div>
+      <div class="kpi"><strong>0</strong><span>approval-policy violations</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section alt reveal">
+  <div class="wrap contact-wrap">
+    <p class="kicker">Contact</p>
+    <h2>See it live. Then let's talk.</h2>
+    <p class="section-sub">The prototype is ready to demo for event organizers, banks, and university financial-literacy programs.</p>
+    <div class="contact-actions">
+      <a href="mailto:your-team@smartbudget-ai.example" class="btn btn-primary">✉️ Email the team</a>
+      <a href="https://github.com/username/smartbudget-ai" class="btn btn-ghost">⭐ Star on GitHub</a>
+    </div>
+    <p class="fine-print">All demo data on this page is synthetic. SmartBudget AI is a student budgeting tool — guidance, not guaranteed outcomes, and never financial advice.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>◈ SmartBudget AI — Student Budget Guardian Agent</span>
+    <span>Built on <a href="https://base44.com" target="_blank" rel="noopener">Base44</a> · Agentic AI by RealRelay · Singapore 🇸🇬</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
