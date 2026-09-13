@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartBudget AI — Pitch Deck</title>
+<style>
+:root{
+  --ink:#0f172a; --ink-soft:#475569; --ink-faint:#94a3b8;
+  --brand:#0d9488; --brand-dark:#0f766e; --brand-light:#ccfbf1;
+  --grad-a:#0d9488; --grad-b:#10b981;
+  --warn:#f59e0b; --danger:#ef4444; --dark:#0b1220; --line:#e2e8f0; --card:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--dark)}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+.deck{position:relative;width:100vw;height:100vh}
+.slide{position:absolute;inset:0;display:none;padding:56px 72px;flex-direction:column;justify-content:center;background:var(--dark)}
+.slide.active{display:flex}
+.slide.light{background:#f8fafc}
+.slide h1{font-size:52px;line-height:1.12;font-weight:800;letter-spacing:-.02em}
+.slide h2{font-size:40px;line-height:1.15;font-weight:800;letter-spacing:-.02em;margin-bottom:26px}
+.slide .sub{font-size:22px;line-height:1.5;margin-top:18px;max-width:900px}
+.kicker{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:16px}
+.light .kicker{color:var(--brand-dark)}
+.grad{background:linear-gradient(90deg,var(--grad-a),var(--grad-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+ul.big{list-style:none;margin-top:8px}
+ul.big li{font-size:23px;line-height:1.45;padding:12px 0 12px 36px;position:relative;border-bottom:1px solid var(--line)}
+ul.big li:last-child{border-bottom:none}
+ul.big li::before{content:"✓";position:absolute;left:4px;color:var(--brand);font-weight:800}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.stat .n{font-size:42px;font-weight:800;color:var(--brand-dark);letter-spacing:-.02em}
+.stat .l{font-size:15px;color:var(--ink-soft);margin-top:6px;line-height:1.4}
+.slide.dark .stat{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+.slide.dark .stat .n{color:#2dd4bf}
+.slide.dark .stat .l{color:#94a3b8}
+.foot{position:absolute;left:72px;right:72px;bottom:22px;font-size:12px;color:var(--ink-faint);display:flex;justify-content:space-between}
+.slide.dark .foot{color:#64748b}
+.chip{display:inline-block;background:var(--brand-light);color:var(--brand-dark);font-size:14px;font-weight:700;padding:6px 14px;border-radius:999px;margin:4px 6px 0 0}
+.slide.dark .chip{background:rgba(45,212,191,.12);color:#2dd4bf}
+.flow{display:flex;align-items:stretch;gap:0;margin-top:34px}
+.fbox{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 18px;text-align:center}
+.fbox h3{font-size:19px;font-weight:800}
+.fbox p{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.fbox.final{background:var(--dark);border-color:var(--dark);color:#fff}
+.fbox.final p{color:#94a3b8}
+.farrow{display:flex;align-items:center;justify-content:center;padding:0 10px;font-size:26px;color:var(--brand);font-weight:800}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 26px}
+.pcard.feat{outline:3px solid var(--brand);position:relative}
+.pcard h3{font-size:22px;font-weight:800}
+.price{font-size:38px;font-weight:800;color:var(--brand-dark);margin:6px 0 14px}
+.pcard ul{list-style:none}
+.pcard li{font-size:16.5px;line-height:1.45;padding:7px 0 7px 28px;position:relative;color:var(--ink-soft)}
+.pcard li::before{content:"✓";position:absolute;left:2px;color:var(--brand);font-weight:800}
+.pcard li.p::before{content:"⚡"}
+.pcard li b{color:var(--ink)}
+.nav{position:fixed;right:26px;bottom:20px;z-index:99;display:flex;gap:8px;align-items:center}
+.nav button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:17px;width:42px;height:42px;border-radius:10px;cursor:pointer;font-weight:700}
+.nav button:hover{background:rgba(255,255,255,.22)}
+.counter{color:#94a3b8;font-size:14px;font-weight:600;min-width:56px;text-align:center}
+.prog{position:fixed;left:0;top:0;height:4px;background:linear-gradient(90deg,var(--grad-a),var(--grad-b));z-index:100;transition:width .25s}
+.note{font-size:15px;color:var(--ink-soft);margin-top:16px;max-width:860px}
+.slide.dark .note{color:#94a3b8}
+.hl{color:var(--brand-dark);font-weight:800}
+.slide.dark .hl{color:#2dd4bf;font-weight:800}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+<div class="deck" id="deck">
+
+<section class="slide dark active">
+  <span class="kicker">SmartBudget AI · Singapore 2026</span>
+  <h1 style="color:#fff">You know more about money than any student generation before you.<br><span class="grad">So why don't you know where it went?</span></h1>
+  <p class="sub" style="color:#94a3b8">The Student Budget Guardian — an agent that predicts overspending before the month ends.</p>
+  <div class="foot"><span>SmartBudget AI</span><span>Pitch · Sep 2026</span></div>
+</section>
+
+<section class="slide light">
+  <span class="kicker">The problem</span>
+  <h2>Education solved the knowing.<br><span class="hl">Nothing solves the doing.</span></h2>
+  <ul class="big">
+    <li>Financial education exists and <b>works</b> — youths outscore adults on tested financial knowledge (NFCS via MAS, 2024)</li>
+    <li>But the habit is missing: <b>52% of Singapore adults don't know their monthly spend</b> — worst in the 18–24 band (SmartWealth, 1,183 adults, Feb 2022)</li>
+    <li>Tracking today = the Notes app, mental math, or nothing</li>
+  </ul>
+  <div class="foot"><span>Sources: MAS parliamentary reply Apr 2024 · NFCS · SmartWealth survey Feb 2022</span></div>
+</section>
+
+<section class="slide light">
+  <span class="kicker">The gap</span>
+  <h2>Everyone owns a piece.<br><span class="hl">Nobody owns proactive × student × local.</span></h2>
+  <ul class="big">
+    <li><b>Seedly</b> — trusted, bank-synced… built for salaried adults, and reactive. S$3.98/mo</li>
+    <li><b>Bank apps</b> — single-bank, generic views</li>
+    <li><b>YNAB / Spendee</b> — powerful but not localized (no hawker / MRT / CCA categories)</li>
+    <li><b>Youth accounts</b> — the rails exist from age 16… no engagement layer on top</li>
+  </ul>
+  <div class="foot"><span>Source: app-comparison research, verified Sep 2026</span></div>
+</section>
+
+<section class="slide dark">
+  <span class="kicker">Our agent</span>
+  <h2 style="color:#fff">One agent. One job.<br><span class="grad">Keep students in budget while they save.</span></h2>
+  <ul class="big">
+    <li style="color:#e2e8f0">Not a chatbot. Not a bank. Not an advisor. One job.</li>
+    <li style="color:#e2e8f0">Predicts overspend <b>before</b> the month ends — one intervention per event, always explainable, never judgemental</li>
+    <li style="color:#e2e8f0">Deterministic math owns every number. AI interprets. Everything is logged.</li>
+  </ul>
+  <div class="foot"><span>SmartBudget AI</span></div>
+</section>
+
+<section class="slide dark">
+  <span class="kicker">Live demo</span>
+  <h2 style="color:#fff">Watch it happen — on stage.</h2>
+  <ul class="big">
+    <li style="color:#e2e8f0">Dashboard: S$600 budget, mid-month, savings goal S$720 of S$1,000</li>
+    <li style="color:#e2e8f0">Add one S$35 food-delivery expense → Guardian banner: <b>~S$65 projected overspend — limit food to S$30 for the next 12 days</b></li>
+    <li style="color:#e2e8f0">Tap "Why am I seeing this?" → reason codes, plain language. No black box.</li>
+    <li style="color:#e2e8f0">Second small expense → alert suppressed (cooldown). Real emergency → it breaks its own cooldown.</li>
+    <li style="color:#e2e8f0">Guardian Log → full audit trail. Every number computed, logged, reproducible — each one cost half a cent.</li>
+  </ul>
+  <div class="foot"><span>App: smart-winged-budget-flow.base44.app</span><span>Engine verified: risk 82 · S$665 projected · 36ms</span></div>
+</section>
+
+<section class="slide light">
+  <span class="kicker">Why this is trustworthy</span>
+  <h2>Evals, not vibes.</h2>
+  <ul class="big">
+    <li>Frozen, machine-validated contracts — input/output JSON schemas + scripted validation harness</li>
+    <li>Given / When / Then test suite — the audit caught <b>our own drift</b> before any judge could</li>
+    <li>The agent categorically cannot move money — <b>recommendations only</b>, student approval required for any financial change</li>
+    <li>Dedup + cooldown + escalation exception, consent flags, non-judgemental language — <b>enforced in code</b></li>
+  </ul>
+  <div class="foot"><span>Verified Sep 12–13, 2026 · deterministic-engine-0.1.0 · policy 1.0.0-demo</span></div>
+</section>
+
+<section class="slide dark">
+  <span class="kicker">The big idea</span>
+  <h2 style="color:#fff">Banks already pay to win these students.<br><span class="grad">We redirect that spend — we don't create it.</span></h2>
+  <ul class="big">
+    <li style="color:#e2e8f0">Youth accounts open at 16… then sit dormant, because nothing keeps the relationship alive</li>
+    <li style="color:#e2e8f0">We are the engagement layer — first-mover access to the next generation at the moment their habits form</li>
+    <li style="color:#e2e8f0">No agentic budgeting app for students exists (market-scan verified) — the first bank to partner owns the category introduction</li>
+    <li style="color:#e2e8f0">Structurally safe partner: student-first, not monetization-first · never sells data · MAS FEAT / SAFR-aligned · full audit trail</li>
+  </ul>
+  <div class="foot"><span>Mox Bank built its own budgeting layer for its customers (Quinlan via Fintech News HK 2023) — we're the bank-agnostic version</span></div>
+</section>
+
+<section class="slide light">
+  <span class="kicker">Business model</span>
+  <h2>The money flow.</h2>
+  <div class="flow">
+    <div class="fbox"><h3>Student</h3><p>joins free</p></div>
+    <div class="farrow">→</div>
+    <div class="fbox"><h3>Budget Guardian</h3><p>proves value weekly</p></div>
+    <div class="farrow">→</div>
+    <div class="fbox"><h3>Bank Activation</h3><p>youth account, 16+ · bank pays</p></div>
+    <div class="farrow">→</div>
+    <div class="fbox final"><h3>Revenue</h3><p>S$10–25 per activated student</p></div>
+  </div>
+  <p class="note">Banks pay <span class="hl">US$65–90</span> to acquire one retail customer in APAC (Quinlan &amp; Associates via Fintech News HK, Jun 2023) — we deliver activated students for a fraction, from the same budget. Universities sponsor cohort programs on top.</p>
+  <p class="note" style="font-weight:700;color:var(--ink)">Students never pay for the Guardian. Ever.</p>
+  <div class="foot"><span>Quinlan &amp; Associates, "APAC Digital Bank Landscape" (2023) · Trust Bank referral precedent</span></div>
+</section>
+
+<section class="slide light">
+  <span class="kicker">Pricing</span>
+  <h2>The Guardian is free. For every student. Forever.</h2>
+  <div class="cols">
+    <div class="pcard feat">
+      <h3>Students · Free</h3>
+      <p class="price">S$0</p>
+      <ul>
+        <li><b>Real-time overspend prediction</b></li>
+        <li><b>Proactive alerts &amp; recommendations</b></li>
+        <li>Manual transaction tracking · savings goals</li>
+        <li>Standard monthly summary · 3 smart queries/mo</li>
+      </ul>
+    </div>
+    <div class="pcard">
+      <h3>Students · Premium</h3>
+      <p class="price">S$3–5<span style="font-size:18px">/mo</span></p>
+      <ul>
+        <li class="p">Unlimited smart queries</li>
+        <li class="p">Personalized monthly coaching report</li>
+        <li class="p">Goal gamification streaks · advanced insights</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Free to be protected. Premium to go deeper. Price band validated by Seedly at S$3.98/mo.</p>
+  <div class="foot"><span>Sponsored by the bank channel — students get the Guardian free</span></div>
+</section>
+
+<section class="slide light">
+  <span class="kicker">The numbers</span>
+  <h2>Small cost. Big gap we fill.</h2>
+  <div class="stat-grid">
+    <div class="stat"><div class="n">~20k+</div><div class="l">new poly students per year · 100k+ addressable funnel (MOE ESD 2025)</div></div>
+    <div class="stat"><div class="n">S$0.05</div><div class="l">AI cost per student / month (~S$0.005 per evaluation) → ~99% gross margin</div></div>
+    <div class="stat"><div class="n">52%</div><div class="l">of adults don't know their monthly spend — pilot target: majority of users can name theirs by week 4 (SmartWealth 2022)</div></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat"><div class="n">US$65–90</div><div class="l">bank CAC we undercut — we charge S$10–25 per activated student</div></div>
+    <div class="stat"><div class="n">71.9%</div><div class="l">of people who track spending don't overspend (SmartWealth)</div></div>
+    <div class="stat"><div class="n">≥10%</div><div class="l">target overspend reduction among engaged users, measured in pilot</div></div>
+  </div>
+  <div class="foot"><span>MOE ESD 2025 · SmartWealth Feb 2022 · Quinlan via Fintech News HK Jun 2023 · our engine, verified</span></div>
+</section>
+
+<section class="slide dark">
+  <span class="kicker">Where we are · where we go</span>
+  <h2 style="color:#fff">Traction &amp; roadmap.</h2>
+  <ul class="big">
+    <li style="color:#e2e8f0"><b>Today:</b> working agent, verified engine, live audit trail — on stage, right now</li>
+    <li style="color:#e2e8f0"><b>Next:</b> controlled pilot on 1–2 campuses (100–500 students), PDPA-first data handling</li>
+    <li style="color:#e2e8f0"><b>Then:</b> Malaysia → Indonesia → Thailand — multi-currency and local privacy law mapping already in the architecture</li>
+  </ul>
+  <div class="foot"><span>SmartBudget AI</span></div>
+</section>
+
+<section class="slide dark">
+  <span class="kicker">The ask</span>
+  <h2 style="color:#fff">One semester. One pilot. One audit trail.</h2>
+  <ul class="big">
+    <li style="color:#e2e8f0"><b>Students:</b> try it, break it, tell us what your money did</li>
+    <li style="color:#e2e8f0"><b>Banks &amp; partners:</b> your youth accounts, our Guardian, one semester — measured overspend reduction. We'll show you the audit trail.</li>
+  </ul>
+  <p class="sub" style="margin-top:34px;font-weight:800;color:#fff;font-size:30px">Find out where your money goes — <span class="grad">before it's gone.</span></p>
+  <div class="foot"><span>SmartBudget AI · live app: smart-winged-budget-flow.base44.app</span><span>Thank you</span></div>
+</section>
+
+</div>
+<div class="nav">
+  <button id="prev" aria-label="Previous">←</button>
+  <span class="counter" id="ctr">1 / 12</span>
+  <button id="next" aria-label="Next">→</button>
+</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+document.getElementById('ctr').textContent=(i+1)+' / '+slides.length;
+document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%';}
+document.getElementById('next').onclick=()=>show(i+1);
+document.getElementById('prev').onclick=()=>show(i-1);
+addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown','Enter'].includes(e.key))show(i+1);
+if(['ArrowLeft','PageUp','Backspace'].includes(e.key))show(i-1);});
+addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')show(i+1);});
+show(0);
+</script>
+</body>
+</html>
